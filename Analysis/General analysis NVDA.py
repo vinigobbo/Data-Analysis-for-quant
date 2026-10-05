@@ -8,16 +8,13 @@ retornos = fechamento.pct_change() * 100
 
 media = retornos.mean() .item()
 volatilidade = retornos.std() .item()
-
 data_maior = retornos.idxmax() .item()
 data_menor = retornos.idxmin() .item()
-
 maior = retornos.max() .item()
 menor = retornos.min() .item()
 
 print("Volatilidade:", round(volatilidade, 2), "%")
 print("Media:", round(media, 2), "%")
-
 print("Maior retorno:", round(maior, 2), "% em", data_maior.date())
 print("Menor retorno:", round(menor, 2), "% em", data_menor.date())
 

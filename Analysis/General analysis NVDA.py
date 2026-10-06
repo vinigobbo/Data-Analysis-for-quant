@@ -13,12 +13,12 @@ data_maior = retornos.idxmax()
 data_menor = retornos.idxmin()
 maior = retornos.max()
 menor = retornos.min()
-media = retornos.mean() .item()
-volatilidade = retornos.std() .item()
-data_maior = retornos.idxmax() .item()
-data_menor = retornos.idxmin() .item()
-maior = retornos.max() .item()
-menor = retornos.min() .item()
+media = retornos.mean()
+volatilidade = retornos.std()
+data_maior = retornos.idxmax()
+data_menor = retornos.idxmin()
+maior = retornos.max()
+menor = retornos.min()
 
 
 print("Volatilidade:", round(volatilidade, 2), "%")
@@ -28,10 +28,16 @@ print("Maior retorno:", round(maior, 2), "% em", data_maior.date())
 print("Menor retorno:", round(menor, 2), "% em", data_menor.date())
 
 media_movel = fechamento.rolling(20).mean()
-print(media_movel)
-
 media_movel2 = fechamento.rolling(50).mean()
-print(media_movel2)
+
+acima = media_movel > media_movel2
+print(acima)
+
+ontem = acima.shift()
+print(ontem)
+
+mudou = acima != ontem
+print(mudou)
 
 fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True)
 

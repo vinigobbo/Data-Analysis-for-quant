@@ -6,6 +6,7 @@ dados = yf.download("NVDA", start="2025-01-01", end="2026-01-01")
 fechamento = dados["Close"].squeeze()
 retornos = fechamento.pct_change() * 100
 
+<<<<<<< HEAD
 media = retornos.mean()
 volatilidade = retornos.std()
 vol_anual = retornos.std() * (252 ** 0.5)
@@ -13,6 +14,14 @@ data_maior = retornos.idxmax()
 data_menor = retornos.idxmin()
 maior = retornos.max()
 menor = retornos.min()
+=======
+media = retornos.mean() .item()
+volatilidade = retornos.std() .item()
+data_maior = retornos.idxmax() .item()
+data_menor = retornos.idxmin() .item()
+maior = retornos.max() .item()
+menor = retornos.min() .item()
+>>>>>>> 30e9308725d6278c51fbc8046a41996a8729f0f5
 
 print("Volatilidade:", round(volatilidade, 2), "%")
 print("Volatilidade anual:", round(vol_anual, 2), "%")

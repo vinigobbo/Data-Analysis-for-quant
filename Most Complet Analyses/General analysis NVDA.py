@@ -39,6 +39,16 @@ print(ontem)
 mudou = acima != ontem
 print(mudou)
 
+validos = media_movel2.notna() & media_movel2.shift().notna()
+cruzou = mudou & validos
+print(cruzou[cruzou])
+
+alta = cruzou & acima
+baixa = cruzou & ~acima
+
+print("Cruzou pra cima:", list(fechamento.index[alta].date))
+print("Cruzou pra baixo:", list(fechamento.index[baixa].date))
+
 fig, (ax1, ax2) = plt.subplots(2, 1, sharex=True)
 
 ax1.plot(fechamento, label="Preço")
